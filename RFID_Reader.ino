@@ -34,7 +34,7 @@ void loop() {
 
   if (!rfid.PICC_IsNewCardPresent()) return;  // Если новая метка не поднесена - вернуться в начало loop
   if (!rfid.PICC_ReadCardSerial()) return;    // Если метка не читается - вернуться в начало loop
-  if (millis() - read_timer <= 200) {
+  if (millis() - read_timer <= 500) {
     read_timer = millis();  // Сброс таймера
     return;
   }
