@@ -38,8 +38,9 @@ void loop() {
     read_timer = millis();  // Сброс таймера
     return;
   }
-  for (uint8_t i = 0; i < 4; i++) {  // Обработка UID
+  for (uint8_t i = 0; i < 4; i++) {  // Отправка UID
     Serial.print("0x");
+    if (rfid.uid.uidByte[i] < 16) Serial.print("0");
     Serial.print(rfid.uid.uidByte[i], HEX);
     if (i != 3) Serial.print(" ");
   }
